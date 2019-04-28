@@ -1,0 +1,35 @@
+{
+  "name": "countdown-node",
+  "version": "1.0.0",
+  "description": "Terminal countdown timer",
+  "main": "src/index.js",
+  "author": "Harris Geo",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "countdown": "node -r esm ./src/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "test": "jest",
+    "test:watch": "yarn test --watchAll --colors",
+    "test:coverage": "yarn test --coverage --colors",
+    "format": "prettier --write *.js"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "esm": "^3.2.22",
+    "progress": "^2.0.3",
+    "unicode-dragon": "^0.1.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "jest": "^24.7.1",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.18.11",
+    "prettier": "^1.17.0"
+  }
+}
