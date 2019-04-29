@@ -23,3 +23,5 @@ yarn install
 ## Licence
 
 MIT
+
+Influenced by [Anton Medvedev's countdown in go](https://github.com/antonmedv/countdown)
