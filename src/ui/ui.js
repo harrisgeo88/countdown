@@ -7,7 +7,6 @@ export const printTime = seconds => {
   for (let i = 0; i < 6; i++) {
     const time = secondsToHHMMSS(seconds);
     let output = printSize(false, seconds);
-    // console.log(Math.ceil(position(false) - getDiff(false, seconds)));
     if (time[0] !== "0" || time[1] !== "0") {
       output += font[time[0]][i] + font[time[1]][i] + font[time[2]][i];
     }
@@ -46,7 +45,6 @@ export const getDiff = (vertical = true, seconds = 0) => {
 };
 
 export const printSize = (vertical = true, seconds = 0) => {
-  const diff = 0;
   const size = Math.ceil(position(vertical) - getDiff(vertical, seconds));
   let output = "";
   for (var i = 0; i < size; i++) {
