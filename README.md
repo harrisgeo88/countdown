@@ -6,7 +6,7 @@
 
 ## Usage
 
-Specify duration in go format `1h2m3s`.
+Specify duration in the following format `1h2m3s`.
 
 ```bash
 yarn countdown 25s
