@@ -1,25 +1,41 @@
 import { font } from "../font";
 import { secondsToHHMMSS } from "../timer";
+import cliCursor from "cli-cursor";
+
+export const stream = process.stdout;
+
+export const exitHandler = () => {
+  console.clear();
+  cliCursor.show();
+  process.exit();
+};
+
+export const clearScreen = () => {
+  const { rows, columns } = stream;
+  stream.moveCursor(columns, rows);
+
+  for (let i = 0; i <= stream.rows; i++) {
+    stream.moveCursor(0, -1);
+    stream.clearLine(0);
+  }
+};
 
 export const printTime = seconds => {
-  console.clear();
-  console.log(printSize());
+  clearScreen();
+  stream.write(printSize()); // vertical
   for (let i = 0; i < 6; i++) {
     const time = secondsToHHMMSS(seconds);
-    let output = printSize(false, seconds);
-    if (time[0] !== "0" || time[1] !== "0") {
-      output += font[time[0]][i] + font[time[1]][i] + font[time[2]][i];
-    }
+    const spaces = printSize(false, seconds);
+    stream.write(`${spaces}`);
 
-    output +=
-      font[time[3]][i] +
-      font[time[4]][i] +
-      font[time[5]][i] +
-      font[time[6]][i] +
-      font[time[7]][i];
-    console.log(output);
+    const start = seconds >= 3600 ? 0 : 3;
+
+    for (let j = start; j < 8; j++) {
+      stream.write(`${font[time[j]][i]}`);
+    }
+    stream.write("\n");
   }
-  console.log(printSize());
+  cliCursor.hide();
 };
 
 export const position = (vertical = true) => {

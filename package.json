@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "babel-preset-env": "^1.7.0",
+    "cli-cursor": "^3.0.0",
     "esm": "^3.2.22"
   },
   "devDependencies": {

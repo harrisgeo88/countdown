@@ -1,1 +1,9 @@
-export { position, spacer, getDiff, printTime } from "./ui";
+export {
+  position,
+  spacer,
+  getDiff,
+  printTime,
+  clearScreen,
+  stream,
+  exitHandler
+} from "./ui";

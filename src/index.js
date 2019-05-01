@@ -1,17 +1,21 @@
 import { timerToSeconds } from "./timer";
-import { printTime } from "./ui";
+import { printTime, stream, clearScreen, exitHandler } from "./ui";
 
-console.clear();
+clearScreen();
 let timer = process.argv[2];
 let t = timerToSeconds(timer);
 
+//do something when app is closing
+process.on("exit", () => exitHandler());
+
+//catches ctrl+c event
+process.on("SIGINT", () => exitHandler());
+
 const countdown = setInterval(function() {
-  console.clear();
   printTime(t);
   t--;
 
   if (t == -1) {
-    console.clear();
-    clearInterval(countdown);
+    process.exit();
   }
 }, 1000);
