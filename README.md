@@ -12,6 +12,10 @@ Specify duration in the following format `1h2m3s`.
 yarn countdown 25s
 ```
 
+## Key binding
+* space: To pause / resume the countdown.
+* Esc or Ctrl+C: To stop the countdown without running next command.
+
 ## Install
 
 ```
